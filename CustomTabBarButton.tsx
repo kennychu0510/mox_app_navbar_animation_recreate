@@ -18,7 +18,6 @@ const AnimatedBlurView = Animated.createAnimatedComponent(BlurView);
 const easingType = Easing.bezier(0.42, 0, 0.58, 1);
 const duration = 500;
 
-
 const CustomTabBarButton = (props: BottomTabBarButtonProps) => {
   const [open, setOpen] = useState(false);
   const buttonAnimNative = useRef(new Animated.Value(0)).current;
@@ -108,7 +107,7 @@ const CustomTabBarButton = (props: BottomTabBarButtonProps) => {
           borderRadius: 50,
           height: 70,
           aspectRatio: 1,
-          zIndex: 2,
+          zIndex: open ? 2 : 1,
         }}
       >
         <AnimatedBlurView
@@ -126,6 +125,7 @@ const CustomTabBarButton = (props: BottomTabBarButtonProps) => {
             }),
           }}
         />
+
         <Animated.View
           style={{
             height: 70,
